@@ -4,7 +4,7 @@ import laravel from 'laravel-vite-plugin';
 export default defineConfig({
     plugins: [
         laravel({
-            input: [],
+            input: ['resources/placeholder.js'],
             refresh: false,
         }),
     ],
