@@ -12,6 +12,12 @@ RUN a2enmod rewrite
 # Copier tous les fichiers dans /var/www/html
 COPY . /var/www/html
 
+# Fixer les permissions nécessaires pour Laravel
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+
 # NE PAS redéfinir APACHE_DOCUMENT_ROOT ici
 # Apache servira depuis /var/www/html directement
 
