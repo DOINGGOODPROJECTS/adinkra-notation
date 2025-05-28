@@ -31,14 +31,14 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="theme-color" content="#ffffff">
         <!-- Sweet Alert -->
-        <link type="text/css" href="{{ asset('assets/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet"><!-- Notyf -->
-        <link type="text/css" href="{{ asset('assets/vendor/notyf/notyf.min.css') }}" rel="stylesheet"><!-- Full Calendar  -->
-        <link type="text/css" href="{{ asset('assets/vendor/fullcalendar/main.min.css') }}" rel="stylesheet"><!-- Apex Charts -->
-        <link type="text/css" href="{{ asset('assets/vendor/apexcharts/dist/apexcharts.css') }}" rel="stylesheet"><!-- Dropzone -->
-        <link type="text/css" href="{{ asset('assets/vendor/dropzone/dist/min/dropzone.min.css') }}" rel="stylesheet"><!-- Choices  -->
-        <link type="text/css" href="{{ asset('assets/vendor/choices.js/public/assets/styles/choices.min.css') }}" rel="stylesheet"><!-- Leaflet JS -->
-        <link type="text/css" href="{{ asset('assets/vendor/leaflet/dist/leaflet.css') }}" rel="stylesheet"><!-- Volt CSS -->
-        <link type="text/css" href="{{ asset('assets/css/volt.css') }}" rel="stylesheet">
+        <link type="text/css" href="{{ asset('public/assets/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet"><!-- Notyf -->
+        <link type="text/css" href="{{ asset('public/assets/vendor/notyf/notyf.min.css') }}" rel="stylesheet"><!-- Full Calendar  -->
+        <link type="text/css" href="{{ asset('public/assets/vendor/fullcalendar/main.min.css') }}" rel="stylesheet"><!-- Apex Charts -->
+        <link type="text/css" href="{{ asset('public/assets/vendor/apexcharts/dist/apexcharts.css') }}" rel="stylesheet"><!-- Dropzone -->
+        <link type="text/css" href="{{ asset('public/assets/vendor/dropzone/dist/min/dropzone.min.css') }}" rel="stylesheet"><!-- Choices  -->
+        <link type="text/css" href="{{ asset('public/assets/vendor/choices.js/public/assets/styles/choices.min.css') }}" rel="stylesheet"><!-- Leaflet JS -->
+        <link type="text/css" href="{{ asset('public/assets/vendor/leaflet/dist/leaflet.css') }}" rel="stylesheet"><!-- Volt CSS -->
+        <link type="text/css" href="{{ asset('public/assets/css/volt.css') }}" rel="stylesheet">
     </head>
     <body>
         <main>
@@ -61,28 +61,28 @@
             </section>
         </main>
 
-        <script src="{{ asset('assets/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/onscreen/dist/on-screen.umd.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/nouislider/distribute/nouislider.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/countup.js/dist/countUp.umd.js') }}"></script>
-        <script src="{{ asset('assets/vendor/apexcharts/dist/apexcharts.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/simple-datatables/dist/umd/simple-datatables.js') }}"></script>
-        <script src="{{ asset('assets/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/onscreen/dist/on-screen.umd.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/nouislider/distribute/nouislider.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/countup.js/dist/countUp.umd.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/apexcharts/dist/apexcharts.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/simple-datatables/dist/umd/simple-datatables.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-        <script src="{{ asset('assets/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/fullcalendar/main.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/dropzone/dist/min/dropzone.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/choices.js/public/assets/scripts/choices.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/notyf/notyf.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/leaflet/dist/leaflet.js') }}"></script>
-        <script src="{{ asset('assets/vendor/svg-pan-zoom/dist/svg-pan-zoom.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/svgmap/dist/svgMap.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/sortablejs/Sortable.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/fullcalendar/main.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/dropzone/dist/min/dropzone.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/choices.js/public/assets/scripts/choices.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/notyf/notyf.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/leaflet/dist/leaflet.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/svg-pan-zoom/dist/svg-pan-zoom.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/svgmap/dist/svgMap.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
+        <script src="{{ asset('public/assets/vendor/sortablejs/Sortable.min.js') }}"></script>
         <script async defer="defer" src="https://buttons.github.io/buttons.js"></script>
-        <script src="{{ asset('assets/js/volt.js') }}"></script>
+        <script src="{{ asset('public/assets/js/volt.js') }}"></script>
     </body>
 </html>
