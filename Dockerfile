@@ -9,17 +9,16 @@ RUN apt-get update && apt-get install -y \
 # Active mod_rewrite
 RUN a2enmod rewrite
 
-# Copier tous les fichiers dans /var/www/html
+# Définir la racine Apache sur /public (très important)
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+
+# Copier tous les fichiers Laravel dans /var/www/html
 COPY . /var/www/html
 
 # Fixer les permissions nécessaires pour Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
-
-
-# NE PAS redéfinir APACHE_DOCUMENT_ROOT ici
-# Apache servira depuis /var/www/html directement
 
 # Installer Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
