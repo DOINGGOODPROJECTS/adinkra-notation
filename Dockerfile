@@ -1,25 +1,26 @@
 FROM php:8.2-apache
 
-# Install PHP extensions and system tools
+# Installe les dépendances système nécessaires
 RUN apt-get update && apt-get install -y \
-    zip unzip curl libpng-dev libonig-dev libxml2-dev \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath
+    git curl zip unzip libpng-dev libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo_mysql mbstring exif pcntl bcmath
 
-# Enable Apache rewrite module
+# Active mod_rewrite d’Apache
 RUN a2enmod rewrite
 
-# Set working directory
+# Définit le dossier de travail
 WORKDIR /var/www/html
 
-# Copy existing application
+# Copie les fichiers de l'application
 COPY . .
 
-# Set permissions
+# Permissions sur le stockage
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Install Composer
+# Installe Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
-# Expose port
+# Expose le port web
 EXPOSE 80
