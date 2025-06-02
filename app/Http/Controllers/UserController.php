@@ -6,7 +6,9 @@ use App\Models\User;
 use App\Models\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\AccountCreated;
 use Illuminate\Validation\Rules\Password;
+use App\Notifications\SubmissionsAssigned;
 
 class UserController extends Controller
 {
@@ -42,6 +44,9 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $user->notify(new AccountCreated($user->email, $request->password));
+
         return back()->with(['message'=>"Membre du Jury ajouté avec succès"]);
     }
 
@@ -64,6 +69,11 @@ class UserController extends Controller
                 'assigned_to'=>$data['assigned_to'], 
                 'evaluation_deadline'=>$data['evaluation_deadline']
             ]);
+
+            $user = User::find($data['assigned_to']);
+            if ($user) {
+                $user->notify(new SubmissionsAssigned(count($keys), $data['evaluation_deadline']));
+            }
         }        
 
         return back()->with(['message'=>"Membre du Jury ajouté avec succès"]);

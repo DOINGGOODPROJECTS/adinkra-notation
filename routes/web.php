@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JuryController;
 use App\Http\Controllers\UserController;
@@ -35,6 +36,15 @@ Route::middleware(['auth', 'verified', 'locale'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/test-mail', function () {
+    Mail::raw('Ceci est un email de test envoyé depuis Laravel via Hostinger.', function ($message) {
+        $message->to('yamooon664@gmail.com')
+                ->subject('Test Email Laravel → Hostinger');
+    });
+
+    return 'Email envoyé avec succès !';
 });
 
 require __DIR__.'/auth.php';
