@@ -17,7 +17,7 @@ class SubmissionController extends Controller
     {
         $submissions = Submission::all();
         if(auth()->user()->role == 'jury') {
-            $submissions = Submission::where('assigned_to', auth()->id())->get();
+            $submissions = Submission::whereHas('assignments', fn ($item) => $item->where('assigned_to', auth()->id()))->get();
         }
         return view('submissions', compact('submissions'));
     }

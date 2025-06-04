@@ -98,8 +98,8 @@
                                 <span class="sidebar-text">@lang('locale.jury', ['suffix'=>app()->getLocale() == 'en' ? 'ies' : ''])</span>
                             </a>
                         </li>
-                        <li class="nav-item {{ Route::is('affectations') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('affectations') }}">
+                        <li class="nav-item {{ Route::is('assignments.index') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('assignments.index') }}">
                                 <span class="sidebar-text-contracted">A</span>
                                 <span class="sidebar-text">@lang('locale.assignment', ['suffix'=>'s'])</span>
                             </a>

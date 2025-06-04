@@ -54,4 +54,5 @@
         'total_submissions' => 'Total Soumissions',
         'english' => 'Anglais',
         'french' => 'Français',
+        'assignment_list' => 'Liste des affectations',
     );

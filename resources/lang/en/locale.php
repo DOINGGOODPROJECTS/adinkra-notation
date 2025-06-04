@@ -54,4 +54,5 @@
         'total_submissions' => 'Total Submissions',
         'english' => 'English',
         'french' => 'French',
+        'assignment_list' => 'Assignment List'
     );

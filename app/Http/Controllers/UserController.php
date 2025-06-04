@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Notifications\AccountCreated;
 use Illuminate\Validation\Rules\Password;
-use App\Notifications\SubmissionsAssigned;
 
 class UserController extends Controller
 {
@@ -50,34 +48,6 @@ class UserController extends Controller
         return back()->with(['message'=>"Membre du Jury ajouté avec succès"]);
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function affectation(Request $request)
-    {
-        $request->validate([
-            'evaluation_deadline' => ['required'],
-            'assigned_to' => ['required'],
-        ]);
-
-        $data = $request->except('_token');
-        if (!empty($data['ids'])) {
-            $keys = array_keys($data['ids']);
-        
-            Submission::whereIn('id', $keys)->update([
-                'assigned_to'=>$data['assigned_to'], 
-                'evaluation_deadline'=>$data['evaluation_deadline']
-            ]);
-
-            $user = User::find($data['assigned_to']);
-            if ($user) {
-                $user->notify(new SubmissionsAssigned(count($keys), $data['evaluation_deadline']));
-            }
-        }        
-
-        return back()->with(['message'=>"Membre du Jury ajouté avec succès"]);
-    }
 
     /**
      * Display the specified resource.

@@ -71,4 +71,9 @@ class Submission extends Model
 	{
 		return $this->hasMany(Evaluation::class);
 	}
+
+	public function assignments()
+	{
+		return $this->hasMany(Assignment::class);
+	}
 }

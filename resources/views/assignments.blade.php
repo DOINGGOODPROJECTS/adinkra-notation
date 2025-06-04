@@ -1,5 +1,8 @@
 <x-app-layout>
-    <form action="{{ route('jury.affectations') }}" method="post">
+    @push('links')
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.css">
+    @endpush
+    <form action="{{ route('assignments.store') }}" method="post">
         @csrf
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
             <div class="d-block mb-1 mb-md-0">
@@ -20,36 +23,49 @@
                 <h2 class="h4">@lang('locale.assignment', ['suffix'=>'s'])</h2>
                 <p class="mb-0">@lang('locale.assignment_list')</p>
             </div>
-            <div class="btn-toolbar mb-1 mb-md-0">
-                <button class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
-                    <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                    </svg> @lang('locale.submit')
-                </button>
-            </div>
+            <div class="btn-toolbar mb-1 mb-md-0"></div>
         </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <div class="row my-2">
-                    <div class="col-md-6 col-12">
-                        <label for="evaluation_deadline">DeadLine <span class="text-danger">*</span></label>
-                        <input type="datetime-local" name="evaluation_deadline" id="evaluation_deadline" class="form-control" required>
-                    </div>
-                    <div class="col-md-6 col-12">
-                        <label for="assigned_to">Jury <span class="text-danger">*</span></label>
-                        <select id="state" class="w-100" name="assigned_to" id="assigned_to" required>
-                            <option value="">@lang('locale.jury', ['suffix'=>'s'])</option>
-                            @foreach ($juries as $item)
-                            <option value="{{ $item->id }}">{{ $item->name. " / ".$item->email }}</option>
-                            @endforeach
-                        </select>
+        <div class="mb-2">
+            <div class="accordion mt-2" id="formAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header bg-white" id="headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            @lang('locale.assignment', ['suffix'=>''])
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#formAccordion">
+                        <div class="accordion-body">
+                            <div class="row my-2">
+                                <div class="col-12 mb-3">
+                                    <label for="assigned_to">Jury <span class="text-danger">*</span></label>
+                                    <select id="state" class="w-100" name="user_id" id="assigned_to" required>
+                                        <option value="">@lang('locale.jury', ['suffix'=>'s'])</option>
+                                        @foreach ($juries as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name. " / ".$item->email }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="col-12 mb-3">
+                                    <label for="evaluation_deadline">DeadLine <span class="text-danger">*</span></label>
+                                    <input type="date" name="evaluation_deadline" id="evaluation_deadline" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <button class="btn btn-block text-center btn-gray-800 d-inline-flex align-items-center">
+                                        @lang('locale.submit')
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="card">
             <div class="card-body">
                 <div class="table-responsive py-4">
-                    <table class="table user-table table-flush table-hover table-striped" id="datatable">
+                    <table class="table user-table table-flush table-hover table-striped" id="datatable-vertical">
                         <thead class="thead-light">
                             <th class="border-gray-200">
                                 <div class="form-check dashboard-check">
@@ -161,10 +177,17 @@
 
 
     @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.3.1/js/dataTables.js"></script>
     <script>
+        new DataTable('#datatable-vertical', {
+            paging: false,
+            scrollCollapse: true,
+            scrollY: '400px'
+        });
         document.addEventListener('DOMContentLoaded', function () {
             const masterCheckbox = document.getElementById('select-a');
-            const checkboxes = document.querySelectorAll('tbody input.form-check-input');
+            const checkboxes = document.querySelectorAll('tbody > tr > td > .form-check > input.form-check-input');
 
             masterCheckbox.onclick = function () {
                 if (this.checked) {
@@ -174,6 +197,14 @@
                         // alert('OK')
                         cb.setAttribute('checked', 'true'); 
                         cb.checked = true
+                    });
+                } else {
+                    console.log(checkboxes)
+
+                    checkboxes.forEach(function(cb) { 
+                        // alert('OK')
+                        cb.setAttribute('checked', 'false'); 
+                        cb.checked = false
                     });
                 }
             };

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -26,11 +27,11 @@ Route::get('/{locale}/locale', [Controller::class, 'setLocaleSwitch'])->name('lo
 Route::middleware(['auth', 'verified', 'locale'])->group(function () {
     Route::get('/dashboard', [Controller::class, 'dashboard'])->name('dashboard');
     Route::get('/juries', [JuryController::class, 'index'])->name('juries.index');
-    Route::get('/affectations', [Controller::class, 'affectations'])->name('affectations');
-    Route::post('/jury/affectations', [UserController::class, 'affectation'])->name('jury.affectations');
+    
     Route::resource('users', UserController::class);
     Route::resource('submissions', SubmissionController::class);
     Route::resource('evaluations', EvaluationController::class);
+    Route::resource('assignments', AssignmentController::class);
     Route::resource('criteria', EvaluationCriteriaController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
