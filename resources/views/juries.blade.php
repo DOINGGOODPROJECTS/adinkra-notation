@@ -43,25 +43,9 @@
                         <td>{{ $loop->iteration }}</td>
                         <td><span class="fw-normal">{{ $item->name }}</span></td>
                         <td><span class="fw-normal">{{ $item->email }}</span></td>
-                        <td><span class="fw-normal"><a href="https://demo.themesberg.com/volt-pro/invoice.html" class="fw-bold">{{ $item->submissions->count() }}</a></span></td>
-                        <td><span class="fw-bold"><a href="https://demo.themesberg.com/volt-pro/invoice.html" class="fw-bold">{{ $item->evaluations->count() }}</a></span></td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="icon icon-sm"><span class="fas fa-ellipsis-h icon-dark"></span></span>
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu py-0">
-                                    <a class="dropdown-item rounded-top" href="https://demo.themesberg.com/volt-pro/invoice.html">
-                                        <span class="fas fa-eye me-2"></span>View Details
-                                    </a> 
-                                    <a class="dropdown-item" href="transactions.html#"><span class="fas fa-edit me-2"></span>Edit</a> 
-                                    <a class="dropdown-item text-danger rounded-bottom" href="transactions.html#">
-                                        <span class="fas fa-trash-alt me-2"></span>Remove
-                                    </a>
-                                </div>
-                            </div>
-                        </td>
+                        <td><span class="fw-normal">{{ $item->assignments->count() }}</span></td>
+                        <td><span class="fw-bold">{{ $item->evaluations->count() }}</span></td>
+                        <td></td>
                     </tr>
                     @endforeach
                 </tbody>
