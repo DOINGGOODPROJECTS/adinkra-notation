@@ -12,7 +12,7 @@
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <h2 class="fs-5 fw-normal">@lang('locale.total_assigned_submissions')</h2>
-                    <h3 class="fs-1 fw-extrabold mb-1">{{ $submissions->where('assignments', '!=', collect())->count() }}</h3>
+                    <h3 class="fs-1 fw-extrabold mb-1">{{ $assignedSubmissions = $submissions->filter(fn ($s) => $s->assignments->isNotEmpty()) }}</h3>
                 </div>
             </div>
         </div>
