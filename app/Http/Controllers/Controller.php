@@ -13,7 +13,7 @@ class Controller extends BaseController
 
     public function dashboard() 
     {
-        $submissions = Submission::all();
+        $submissions = Submission::with('assignments')->get();
         if(auth()->user()->role == 'jury') {
             $submissions = Submission::whereHas('assignments', fn ($item) => $item->where('user_id', auth()->id()))->get();
         }
