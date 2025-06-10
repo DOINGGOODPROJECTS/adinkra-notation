@@ -40,7 +40,7 @@ class EvaluationController extends Controller
                 'score' => $value,
             ]);
         }
-        return back()->with(['message'=>'Notation effectuée avec succès']);
+        return redirect()->route('submissions.index')->with(['message'=>'Notation effectuée avec succès']);
     }
 
     /**
