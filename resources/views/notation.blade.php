@@ -258,7 +258,7 @@
                                     </ul>
                                     <input type="number" id="leadership" name="criteria_id[1]" class="form-control"
                                         placeholder="@lang('locale.notation', ['suffix'=>'']) / 20"
-                                        min="0" max="20" step="0.01" value="{{ $submission->evaluations->where(['criteria_id'=>1, 'jury_id'=>auth()->id()])->first()?->score ?? '' }}" required>
+                                        min="0" max="20" step="0.01" value="{{ $evaluations->isNotEmpty() ? $evaluations->firstwhere('criteria_id', 1)->score : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
