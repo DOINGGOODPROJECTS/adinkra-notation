@@ -109,7 +109,7 @@
                         <td>
                             <span class="fw-normal">
                                 @if ($item->evaluations && $item->evaluations->isNotEmpty())
-                                    {{ $item->evaluations->sum('score') }} / {{ 100*$item->evaluations()->distinct('jury_id')->count('jury_id') }}
+                                    {{ $item->evaluations->sum('score') }} / {{ 100*$item->evaluations->distinct('jury_id')->count('jury_id') }}
                                 @endif
                             </span>
                         </td>
