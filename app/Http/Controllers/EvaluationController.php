@@ -44,6 +44,24 @@ class EvaluationController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     */
+    public function updatestore(Request $request)
+    {
+        $data = $request->except('_token');
+        Evaluation::where(['jury_id'=>$data['jury_id'], 'submission_id'=>$data['submission_id']])->delete();
+        foreach ($data['criteria_id'] as $key => $value) {
+            Evaluation::create([
+                'jury_id' => $data['jury_id'],
+                'submission_id' => $data['submission_id'],
+                'criteria_id' => $key,
+                'score' => $value,
+            ]);
+        }
+        return redirect()->route('submissions.index')->with(['message'=>'Notation modifiée avec succès']);
+    }
+
+    /**
      * Display the specified resource.
      */
     public function show(string $id)
