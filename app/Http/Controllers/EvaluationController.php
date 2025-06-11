@@ -49,7 +49,8 @@ class EvaluationController extends Controller
     public function show(string $id)
     {
         $submission = Submission::find($id);
-        return view('notation', compact('submission'));
+        $evaluations = $submission->evaluations()->where('jury_id', auth()->id())->get();
+        return view('notation', compact('submission', 'evaluations'));
     }
 
     /**
