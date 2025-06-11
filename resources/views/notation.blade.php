@@ -236,7 +236,7 @@
             </div>
         </div>
     </div>
-    <form action="{{ route('evaluations.store') }}" method="post">
+    <form action="{{ $evaluations->isNotEmpty() ? route('evaluations.update_store') : route('evaluations.store') }}" method="post">
         @csrf
         <input type="hidden" name="jury_id" value="{{ auth()->id() }}">
         <input type="hidden" name="submission_id" value="{{ $submission->id }}">
