@@ -27,7 +27,7 @@ Route::get('/{locale}/locale', [Controller::class, 'setLocaleSwitch'])->name('lo
 Route::middleware(['auth', 'verified', 'locale'])->group(function () {
     Route::get('/dashboard', [Controller::class, 'dashboard'])->name('dashboard');
     Route::get('/juries', [JuryController::class, 'index'])->name('juries.index');
-    Route::post('/evaluations/update/jury', [EvaluationController::class, 'update_store'])->name('evaluations.update_store');
+    Route::post('/evaluations/update/jury', [EvaluationController::class, 'updatestore'])->name('evaluations.updatestore');
     
     Route::resource('users', UserController::class);
     Route::resource('submissions', SubmissionController::class);
