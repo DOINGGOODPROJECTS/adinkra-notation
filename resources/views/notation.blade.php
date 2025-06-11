@@ -269,7 +269,7 @@
                                         <li style="font-size: 11px">Use of innovative solutions to drive change.</li>
                                         <li style="font-size: 11px">Ability to adapt and scale initiatives.</li>
                                     </ul>
-                                    <input type="number" id="innovation" name="criteria_id[2]" value="{{ $submission->evaluations->where(['criteria_id'=>2, 'jury_id'=>auth()->id()])->first()?->score ?? '' }}" step="0.01" class="form-control" placeholder="@lang('locale.notation', ['suffix'=>'']) / 20" min="0" max="20" required>
+                                    <input type="number" id="innovation" name="criteria_id[2]" value="{{ $evaluations->isNotEmpty() ? $evaluations->firstwhere('criteria_id', 2)->score : '' }}" step="0.01" class="form-control" placeholder="@lang('locale.notation', ['suffix'=>'']) / 20" min="0" max="20" required>
                                 </div>
                             </div>
                         </div>
@@ -282,7 +282,7 @@
                                         <li style="font-size: 11px">Scale and sustainability of their work.</li>
                                         <li style="font-size: 11px">Proven track record of positive change.</li>
                                     </ul>
-                                    <input type="number" id="impact" step="0.01" name="criteria_id[3]" class="form-control" value="{{ $submission->evaluations->where(['criteria_id'=>3, 'jury_id'=>auth()->id()])->first()?->score ?? '' }}" placeholder="@lang('locale.notation', ['suffix'=>'']) / 40" min="0" max="40" required>
+                                    <input type="number" id="impact" step="0.01" name="criteria_id[3]" class="form-control" value="{{ $evaluations->isNotEmpty() ? $evaluations->firstwhere('criteria_id', 3)->score : '' }}" placeholder="@lang('locale.notation', ['suffix'=>'']) / 40" min="0" max="40" required>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
@@ -292,7 +292,7 @@
                                         <li style="font-size: 11px">Potential to foster stronger economic or social ties between Africa and the diaspora.</li>
                                         <li style="font-size: 11px">Commitment to contributing to the Adinkra network and future cohorts.</li>
                                     </ul>
-                                    <input type="number" id="contribution" step="0.01" name="criteria_id[4]" class="form-control" value="{{ $submission->evaluations->where(['criteria_id'=>4, 'jury_id'=>auth()->id()])->first()?->score ?? '' }}" placeholder="@lang('locale.notation', ['suffix'=>'']) / 20" min="0" max="20" required>
+                                    <input type="number" id="contribution" step="0.01" name="criteria_id[4]" class="form-control" value="{{ $evaluations->isNotEmpty() ? $evaluations->firstwhere('criteria_id', 4)->score : '' }}" placeholder="@lang('locale.notation', ['suffix'=>'']) / 20" min="0" max="20" required>
                                 </div>
                             </div>
                         </div>
