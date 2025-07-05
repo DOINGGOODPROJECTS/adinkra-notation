@@ -18,7 +18,7 @@
                         <div class="media d-flex align-items-center">
                             <img class="avatar rounded-circle" alt="LOGO" src="https://ui-avatars.com/api/?name={{ str_replace('+', ' ', auth()->user()->name) }}">
                             <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                <span class="mb-0 font-small fw-bold text-gray-900">{{ auth()->user()->name }}</span>
+                                <span class="mb-0 font-small fw-bold text-gray-900">@lang('locale.welcome') {{ auth()->user()->name }}</span>
                             </div>
                         </div>
                     </a>

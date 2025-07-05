@@ -1,6 +1,7 @@
 <?php
 
     return array(
+        'welcome' => 'Bienvenu',
         'email' => 'Email',
         'your_email' => 'Votre Email',
         'password' => 'Mot de Passe',
