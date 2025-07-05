@@ -40,6 +40,7 @@
         'password_confirmation' => 'Confirmation Mot de Passe',
         'submit' => 'Soumettre',
         'evaluate' => 'Evaluer',
+        'motivation_video' => 'Vidéo de Motivation',
         'modify' => 'Modifier',
         'award_category' => 'Catégorie de distinction',
         'leadership_skills' => 'Expérience(s) en Leadership',
