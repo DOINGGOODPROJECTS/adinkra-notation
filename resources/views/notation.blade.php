@@ -45,15 +45,6 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label>@lang('locale.email')</label>
-                            <input class="form-control" type="text" value="{{ $submission->email }}" readonly>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label>@lang('locale.phone')</label> 
-                            <input class="form-control" type="text"  value="{{ $submission->phone }}" readonly>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
                             <label>@lang('locale.country')</label>
                             <input class="form-control" type="text" value="{{ $submission->country }}" readonly>
                         </div>
@@ -62,20 +53,21 @@
                             <input class="form-control" type="text"  value="{{ $submission->address }}" readonly>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>@lang('locale.personnal_website')</label> 
-                            <input class="form-control" type="text"  value="{{ $submission->personnal_website }}" readonly>
+                            <label>@lang('locale.phone')</label> 
+                            <input class="form-control" type="text"  value="{{ $submission->phone }}" readonly>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>@lang('locale.occupation')</label> 
-                            <input class="form-control" type="text"  value="{{ $submission->occupation }}" readonly>
+                            <label>@lang('locale.email')</label>
+                            <input class="form-control" type="text" value="{{ $submission->email }}" readonly>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label>@lang('locale.award_category')</label> 
                             <input class="form-control" type="text"  value="{{ $submission->award_category }}" readonly>
                         </div>
+                        
                         <div class="col-md-6 mb-3">
-                            <label>@lang('locale.leadership_skills')</label> 
-                            <input class="form-control" type="text" value="{{ $submission->leadership_skills }}" readonly>
+                            <label>@lang('locale.occupation')</label> 
+                            <input class="form-control" type="text"  value="{{ $submission->occupation }}" readonly>
                         </div>
 
                         <div class="col-12 mb-3">
@@ -99,6 +91,10 @@
                             <input class="form-control" type="text" value="{{ $submission->organization_website }}" readonly>
                         </div>
                         <div class="col-md-6 mb-3">
+                            <label>@lang('locale.personnal_website')</label> 
+                            <input class="form-control" type="text"  value="{{ $submission->personnal_website }}" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
                             <label>@lang('locale.team_count')</label> 
                             <input class="form-control" type="text" value="{{ $submission->team_count }}" readonly>
                         </div>
@@ -117,6 +113,10 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label>@lang('locale.leadership_skills')</label> 
+                            <input class="form-control" type="text" value="{{ $submission->leadership_skills }}" readonly>
                         </div>
 
                         <div class="col-12">
@@ -261,6 +261,44 @@
                                                 <p class="text-muted" style="text-align: justify">
                                                     <a href="{{ $submission->motivation_video }}" target="_blank">
                                                         {{ $submission->motivation_video }}
+                                                    </a>
+                                                </p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="accordion mt-2" id="biography">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header bg-white" id="headingNine">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                            @lang('locale.additional_video')
+                                        </button>
+                                    </h2>
+                                    <div id="collapseNine" class="accordion-collapse collapse show" aria-labelledby="headingNine" data-bs-parent="#biography">
+                                        <div class="accordion-body">
+                                            @if(Illuminate\Support\Str::contains($submission->others_video_link, 'youtu'))
+                                                @php
+                                                    $url = $submission->others_video_link;
+                                                    // Gérer les deux cas : youtube.com/watch?v=... ou youtu.be/...
+                                                    $videoId = Illuminate\Support\Str::contains($url, 'youtu.be')
+                                                        ? Illuminate\Support\Str::afterLast($url, '/')
+                                                        : Illuminate\Support\Str::afterLast($url, 'v=');
+                                                @endphp
+
+                                                <iframe width="560" height="315"
+                                                    src="https://www.youtube.com/embed/{{ $videoId }}"
+                                                    title="Vidéo de motivation"
+                                                    frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen>
+                                                </iframe>
+                                            @else
+                                                <p class="text-muted" style="text-align: justify">
+                                                    <a href="{{ $submission->others_video_link }}" target="_blank">
+                                                        {{ $submission->others_video_link }}
                                                     </a>
                                                 </p>
                                             @endif
