@@ -106,11 +106,11 @@
                             <div class="accordion mt-2" id="organizationPresentation">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-white" id="headingTwo">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                             @lang('locale.organization_presentation')
                                         </button>
                                     </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#organizationPresentation">
+                                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#organizationPresentation">
                                         <div class="accordion-body">
                                             <p class="text-muted" style="text-align: justify">{{ $submission->organization_presentation }}</p>
                                         </div>
@@ -123,11 +123,11 @@
                             <div class="accordion mt-2" id="realizations">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-white" id="headingThree">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                                             @lang('locale.realisations')
                                         </button>
                                     </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#realizations">
+                                    <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#realizations">
                                         <div class="accordion-body">
                                             <p class="text-muted" style="text-align: justify">{{ $submission->realisations }}</p>
                                         </div>
@@ -139,11 +139,11 @@
                             <div class="accordion mt-2" id="community-impact">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-white" id="headingFour">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                                             @lang('locale.community_impacts')
                                         </button>
                                     </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#community-impact">
+                                    <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#community-impact">
                                         <div class="accordion-body">
                                             <p class="text-muted" style="text-align: justify">{{ $submission->community_impact }}</p>
                                         </div>
@@ -155,11 +155,11 @@
                             <div class="accordion mt-2" id="leadership-challenge">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-white" id="headingFive">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                                             @lang('locale.leadership_challenges')
                                         </button>
                                     </h2>
-                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#leadership-challenge">
+                                    <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingFive" data-bs-parent="#leadership-challenge">
                                         <div class="accordion-body">
                                             <p class="text-muted" style="text-align: justify">{{ $submission->leadership_challenge }}</p>
                                         </div>
@@ -171,11 +171,11 @@
                             <div class="accordion mt-2" id="contribution">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-white" id="headingSix">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
                                             @lang('locale.contributions')
                                         </button>
                                     </h2>
-                                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#contribution">
+                                    <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingSix" data-bs-parent="#contribution">
                                         <div class="accordion-body">
                                             <p class="text-muted" style="text-align: justify">{{ $submission->contribution }}</p>
                                         </div>
@@ -187,11 +187,11 @@
                             <div class="accordion mt-2" id="expected_from_adinkra">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-white" id="headingSeven">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
                                             @lang('locale.expected_from_adinkra')
                                         </button>
                                     </h2>
-                                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#expected_from_adinkra">
+                                    <div id="collapseSeven" class="accordion-collapse collapse show" aria-labelledby="headingSeven" data-bs-parent="#expected_from_adinkra">
                                         <div class="accordion-body">
                                             <p class="text-muted" style="text-align: justify">{{ $submission->expected_from_adinkra }}</p>
                                         </div>
@@ -203,11 +203,11 @@
                             <div class="accordion mt-2" id="leadership_award">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-white" id="headingEight">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
                                             @lang('locale.leadership_awards')
                                         </button>
                                     </h2>
-                                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#leadership_award">
+                                    <div id="collapseEight" class="accordion-collapse collapse show" aria-labelledby="headingEight" data-bs-parent="#leadership_award">
                                         <div class="accordion-body">
                                             <p class="text-muted" style="text-align: justify">{{ $submission->leadership_award }}</p>
                                         </div>
@@ -219,13 +219,51 @@
                             <div class="accordion mt-2" id="biography">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header bg-white" id="headingNine">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
                                             @lang('locale.biography')
                                         </button>
                                     </h2>
-                                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#biography">
+                                    <div id="collapseNine" class="accordion-collapse collapse show" aria-labelledby="headingNine" data-bs-parent="#biography">
                                         <div class="accordion-body">
                                             <p class="text-muted" style="text-align: justify">{{ $submission->biography }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="accordion mt-2" id="biography">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header bg-white" id="headingNine">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                            @lang('locale.motivation_video')
+                                        </button>
+                                    </h2>
+                                    <div id="collapseNine" class="accordion-collapse collapse show" aria-labelledby="headingNine" data-bs-parent="#biography">
+                                        <div class="accordion-body">
+                                            @if(Illuminate\Support\Str::contains($submission->motivation_video, 'youtu'))
+                                                @php
+                                                    $url = $submission->motivation_video;
+                                                    // Gérer les deux cas : youtube.com/watch?v=... ou youtu.be/...
+                                                    $videoId = Illuminate\Support\Str::contains($url, 'youtu.be')
+                                                        ? Illuminate\Support\Str::afterLast($url, '/')
+                                                        : Illuminate\Support\Str::afterLast($url, 'v=');
+                                                @endphp
+
+                                                <iframe width="560" height="315"
+                                                    src="https://www.youtube.com/embed/{{ $videoId }}"
+                                                    title="Vidéo de motivation"
+                                                    frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen>
+                                                </iframe>
+                                            @else
+                                                <p class="text-muted" style="text-align: justify">
+                                                    <a href="{{ $submission->motivation_video }}" target="_blank">
+                                                        {{ $submission->motivation_video }}
+                                                    </a>
+                                                </p>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

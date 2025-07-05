@@ -40,6 +40,7 @@
         'password_confirmation' => 'Confirmation Mot de Passe',
         'submit' => 'Soumettre',
         'evaluate' => 'Evaluer',
+        'modify' => 'Modifier',
         'award_category' => 'Catégorie de distinction',
         'leadership_skills' => 'Expérience(s) en Leadership',
         'realisations' => 'Resume de vos réalisations',

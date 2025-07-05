@@ -45,7 +45,7 @@
                 </thead>
                 <tbody>
                     @foreach ($submissions as $item)
-                    <tr>
+                    <tr class="clickable-row" data-href="{{ route('evaluations.show', $item->id) }}">
                         <td>{{ $loop->iteration }}</td>
                         <td>
                             <img src="{{ $item->photo }}" class="avatar img-fluid me-3" alt="LOGO">
@@ -115,7 +115,7 @@
                         </td>
                         <td>
                             @if (auth()->user()->role == 'jury')
-                            <a href="{{ route('evaluations.show', $item->id) }}" class="btn btn-sm btn-primary" role="button">@lang('locale.evaluate')</a>
+                            <a href="{{ route('evaluations.show', $item->id) }}" class="btn btn-sm btn-primary" role="button"> {{ ($item->evaluations && $item->evaluations->isNotEmpty()) ? __('locale.modify') : __('locale.evaluate') }}</a>
                             @endif
                         </td>
                     </tr>
@@ -124,4 +124,25 @@
             </table>
         </div>
     </div>
+
+    @push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const rows = document.querySelectorAll(".clickable-row");
+            rows.forEach(row => {
+                row.style.cursor = "pointer";
+                row.addEventListener("click", function (e) {
+                    // Ne pas déclencher la redirection si un lien est cliqué (ex. <a>)
+                    if (e.target.tagName.toLowerCase() !== 'a' && !e.target.closest('a')) {
+                        const href = this.getAttribute("data-href");
+                        if (href) {
+                            window.open(href, "_blank"); // ou _self si tu veux même page
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    
+    @endpush
 </x-app-layout>

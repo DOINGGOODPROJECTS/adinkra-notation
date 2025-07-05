@@ -40,6 +40,7 @@
         'password_confirmation' => 'Password Confirmation',
         'submit' => 'Submit',
         'evaluate' => 'Evaluate',
+        'modify' => 'Modify',
         'award_category' => 'Award Category',
         'leadership_skills' => 'Leadership Skills',
         'realisations' => 'Summary Of Achievements',
