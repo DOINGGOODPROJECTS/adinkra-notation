@@ -74,7 +74,8 @@ class SubmissionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $submission = Submission::find($id);
+        return view('submission', compact('submission'));
     }
 
     /**
