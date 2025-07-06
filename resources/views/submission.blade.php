@@ -12,7 +12,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">@lang('locale.notation', ['suffix'=>'s'])</li>
+                    <li class="breadcrumb-item active" aria-current="page">@lang('locale.cv')</li>
                 </ol>
             </nav>
             <h2 class="h4">@lang('locale.submission', ['suffix'=>'']) N° {{ $submission->id }}</h2>
@@ -24,12 +24,29 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <iframe 
-                                src="{{ $submission->cv }}" 
-                                width="100%" 
-                                height="600px" 
-                                style="border: none;">
-                            </iframe>
+                            @php
+                                $url = $submission->cv;
+                                $isPdf = Str::endsWith($url, '.pdf');
+                                $isImage = Str::endsWith($url, ['.jpg', '.jpeg', '.png', '.gif', '.webp']);
+                            @endphp
+
+                            @if ($isPdf)
+                                {{-- Affichage PDF via Google Docs Viewer --}}
+                                <iframe 
+                                    src="https://docs.google.com/gview?embedded=true&url={{ urlencode($url) }}" 
+                                    width="100%" 
+                                    height="600px" 
+                                    style="border: none;">
+                                </iframe>
+                            @elseif ($isImage)
+                                {{-- Affichage de l'image --}}
+                                <img src="{{ $url }}" alt="CV Image" class="img-fluid w-100" />
+                            @else
+                                {{-- Lien cliquable pour autres fichiers --}}
+                                <a href="{{ $url }}" target="_blank" class="btn btn-outline-primary">
+                                    Ouvrir le fichier
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
