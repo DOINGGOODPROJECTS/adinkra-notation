@@ -50,7 +50,6 @@ class SubmissionsImport implements ToModel, WithHeadingRow, SkipsEmptyRows
             'nationality'  => 'required',
             'country'  => 'required',
             'occupation'  => 'required',
-            'organization'  => 'required',
             'team_count'  => 'required',
             'leadership_skills' => 'required',
             'realisations' => 'required',

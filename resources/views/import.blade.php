@@ -84,8 +84,9 @@
                             name="file" 
                             accept=".xlsx,.xls"
                             required
+                            @click="event.target.value = null"
                             @change="if ($event.target.files.length) { isDragging = false }"
-                        >
+                        />
                     </div>
 
                     <!-- Message d'erreur compact -->

@@ -1,28 +1,36 @@
 <x-app-layout>
     <div class="row mt-4">
         <div class="col-12 col-lg-4 mb-4 mb-xxl-0">
-            <div class="card border-0 shadow">
-                <div class="card-body">
-                    <h2 class="fs-5 fw-normal">@lang('locale.total_submissions')</h2>
-                    <h3 class="fs-1 fw-extrabold mb-1">{{ $submissions->count() }}</h3>
+            <a href="{{ route('submissions.index') }}" class="text-decoration-none text-dark">
+                <div class="card border-0 shadow h-100">
+                    <div class="card-body">
+                        <h2 class="fs-5 fw-normal">@lang('locale.total_submissions')</h2>
+                        <h3 class="fs-1 fw-extrabold mb-1">{{ $submissions->count() }}</h3>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
+        
         <div class="col-12 col-lg-4 mb-4 mb-xxl-0">
-            <div class="card border-0 shadow">
-                <div class="card-body">
-                    <h2 class="fs-5 fw-normal">@lang('locale.total_assigned_submissions')</h2>
-                    <h3 class="fs-1 fw-extrabold mb-1">{{ $submissions->filter(fn ($s) => $s->assignments->isNotEmpty())->count() }}</h3>
+            <a href="{{ route('submissions.index') }}" class="text-decoration-none text-dark">
+                <div class="card border-0 shadow h-100">
+                    <div class="card-body">
+                        <h2 class="fs-5 fw-normal">@lang('locale.total_assigned_submissions')</h2>
+                        <h3 class="fs-1 fw-extrabold mb-1">{{ $submissions->filter(fn ($s) => $s->assignments->isNotEmpty())->count() }}</h3>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
+        
         <div class="col-12 col-lg-4 mb-4 mb-xxl-0">
-            <div class="card border-0 shadow">
-                <div class="card-body">
-                    <h2 class="fs-5 fw-normal">@lang('locale.total_evaluated_submissions')</h2>
-                    <h3 class="fs-1 fw-extrabold mb-1">{{ $submissions->filter(fn ($item) => $item->evaluations && $item->evaluations->isNotEmpty())->count() }}</h3>
+            <a href="{{ route('submissions.index') }}" class="text-decoration-none text-dark">
+                <div class="card border-0 shadow h-100">
+                    <div class="card-body">
+                        <h2 class="fs-5 fw-normal">@lang('locale.total_evaluated_submissions')</h2>
+                        <h3 class="fs-1 fw-extrabold mb-1">{{ $submissions->filter(fn ($item) => $item->evaluations && $item->evaluations->isNotEmpty())->count() }}</h3>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
     <div class="row">
