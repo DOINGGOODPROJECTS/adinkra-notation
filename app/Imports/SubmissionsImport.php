@@ -44,15 +44,14 @@ class SubmissionsImport implements ToModel, WithHeadingRow, SkipsEmptyRows
     {
         return [
             'email' => ['required', 'email', Rule::unique('submissions', 'email')->whereNull('deleted_at')],
-            'fullname' => 'required|string|max:255',
-            'birthday' => 'required|date',
-            'phone' => 'required|max:50',
+            'fullname' => 'required',
+            'birthday' => 'required',
+            'phone' => 'required',
             'nationality'  => 'required',
             'country'  => 'required',
             'occupation'  => 'required',
             'organization'  => 'required',
             'team_count'  => 'required',
-            // 'organization_presentation'  => 'required',
             'leadership_skills' => 'required',
             'realisations' => 'required',
             'community_impact' => 'required',
