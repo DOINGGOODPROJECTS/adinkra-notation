@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -26,5 +27,20 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Custom render for handling specific exceptions like TokenMismatch.
+     */
+    public function render($request, Throwable $exception)
+    {
+        // Gérer l'erreur 419 et rediriger vers login
+        if ($exception instanceof TokenMismatchException) {
+            return redirect()->route('login')->withErrors([
+                'message' => 'Votre session a expiré. Veuillez vous reconnecter.'
+            ]);
+        }
+
+        return parent::render($request, $exception);
     }
 }
