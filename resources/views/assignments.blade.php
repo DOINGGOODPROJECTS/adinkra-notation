@@ -1,6 +1,20 @@
 <x-app-layout>
     @push('links')
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.css">
+    <!-- CSS de Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    
+    <!-- JS de Select2 (jQuery requis) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#assigned_to').select2({
+                placeholder: "Sélectionner un ou plusieurs jurés",
+                allowClear: true
+            });
+        });
+    </script>
     @endpush
     <form action="{{ route('assignments.store') }}" method="post">
         @csrf
@@ -38,7 +52,7 @@
                             <div class="row my-2">
                                 <div class="col-12 mb-3">
                                     <label for="assigned_to">Jury <span class="text-danger">*</span></label>
-                                    <select id="assigned_to" class="w-100" name="user_id[]" multiple required>
+                                    <select id="assigned_to" class="w-100 select2" name="user_id[]" multiple required>
                                         <option disabled>@lang('locale.jury', ['suffix'=>'s'])</option>
                                         @foreach ($juries as $item)
                                             <option value="{{ $item->id }}">
