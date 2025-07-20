@@ -40,7 +40,7 @@ class Controller extends BaseController
     {
         $users = User::where('id', '!=', 1)->get();
         foreach ($users as $item) {
-            $item->notify(new SubmissionsAssigned(count($keys), '2025-08-02'));
+            $item->notify(new SubmissionsAssigned(count($item->assignments->count()), '2025-08-02'));
         }
     }
 }
