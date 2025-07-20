@@ -107,7 +107,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
     var dataTableEl = document.getElementById('datatable');
     if (dataTableEl) {
         const dataTable = new simpleDatatables.DataTable(dataTableEl, {
-            perPageSelect: [10, 25, 50, 100, -1], // -1 = tous les éléments
+            perPageSelect: [10, 25, 50, 100], // -1 = tous les éléments
             perPage: 10 // valeur par défaut
         });
     }
