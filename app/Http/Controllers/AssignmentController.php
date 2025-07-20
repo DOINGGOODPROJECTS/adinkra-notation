@@ -48,9 +48,9 @@ class AssignmentController extends Controller
             }
 
             $user = User::find($data['user_id']);
-            if ($user) {
-                $user->notify(new SubmissionsAssigned(count($keys), $data['evaluation_deadline']));
-            }
+            // if ($user) {
+            //     $user->notify(new SubmissionsAssigned(count($keys), $data['evaluation_deadline']));
+            // }
         }        
 
         return back()->with(['message'=>"Affectation effectuée avec succès"]);
