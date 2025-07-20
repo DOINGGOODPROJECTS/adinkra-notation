@@ -38,10 +38,12 @@
                             <div class="row my-2">
                                 <div class="col-12 mb-3">
                                     <label for="assigned_to">Jury <span class="text-danger">*</span></label>
-                                    <select id="state" class="w-100" name="user_id" id="assigned_to" required>
-                                        <option value="">@lang('locale.jury', ['suffix'=>'s'])</option>
+                                    <select id="assigned_to" class="w-100" name="user_id[]" multiple required>
+                                        <option disabled>@lang('locale.jury', ['suffix'=>'s'])</option>
                                         @foreach ($juries as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name. " / ".$item->email." - ".$item->assignments->count()." ".__('locale.assignment', ['suffix'=>'']) }}</option>
+                                            <option value="{{ $item->id }}">
+                                                {{ $item->name. " / ".$item->email." - ".$item->assignments->count()." ".__('locale.assignment', ['suffix'=>'']) }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
