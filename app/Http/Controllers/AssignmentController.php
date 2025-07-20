@@ -41,10 +41,12 @@ class AssignmentController extends Controller
         if (!empty($data['ids'])) {
             $keys = array_keys($data['ids']);
             foreach ($keys as $item) {
-                Assignment::create([
-                    'user_id'=>$data['user_id'], 
-                    'submission_id'=>$item
-                ]);
+                foreach($data['user_id'] as $user_id) {
+                    Assignment::create([
+                        'user_id'=>$user_id, 
+                        'submission_id'=>$item
+                    ]);
+                }                
             }
 
             $user = User::find($data['user_id']);
