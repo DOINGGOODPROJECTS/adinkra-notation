@@ -41,7 +41,7 @@
                                     <select id="state" class="w-100" name="user_id" id="assigned_to" required>
                                         <option value="">@lang('locale.jury', ['suffix'=>'s'])</option>
                                         @foreach ($juries as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name. " / ".$item->email }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->name. " / ".$item->email." - ".$item->assignments->count()." ".__('locale.assignment', ['suffix'=>'']) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -75,6 +75,7 @@
                             </th>
                             <th class="border-gray-200">@lang('locale.photo') & @lang('locale.cv')</th>
                             <th class="border-gray-200">@lang('locale.award_category')</th>
+                            <th class="border-gray-200">LANGUE</th>
                             <th class="border-gray-200">@lang('locale.full_name')</th>
                             <th class="border-gray-200">@lang('locale.email') & @lang('locale.phone')</th>
                             <th class="border-gray-200">@lang('locale.country') & @lang('locale.address')</th>
@@ -100,6 +101,7 @@
                                     </a>
                                 </td>
                                 <td>{{ $item->award_category }}</td>
+                                <td>{{ $item->lang }}</td>
                                 <td>
                                     <div class="d-block">
                                         <span class="fw-bold"> {{ $item->fullname }}</span>
