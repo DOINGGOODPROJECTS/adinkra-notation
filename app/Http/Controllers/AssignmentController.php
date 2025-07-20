@@ -43,8 +43,7 @@ class AssignmentController extends Controller
             foreach ($keys as $item) {
                 Assignment::create([
                     'user_id'=>$data['user_id'], 
-                    'submission_id'=>$item, 
-                    'evaluation_deadline'=>$data['evaluation_deadline']
+                    'submission_id'=>$item
                 ]);
             }
 
