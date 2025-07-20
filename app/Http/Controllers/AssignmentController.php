@@ -34,7 +34,6 @@ class AssignmentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'evaluation_deadline' => ['required'],
             'user_id' => ['required'],
         ]);
 
