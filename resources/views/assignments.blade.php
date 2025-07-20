@@ -46,10 +46,10 @@
                                     </select>
                                 </div>
 
-                                <div class="col-12 mb-3">
+<!--                                 <div class="col-12 mb-3">
                                     <label for="evaluation_deadline">DeadLine <span class="text-danger">*</span></label>
                                     <input type="date" name="evaluation_deadline" id="evaluation_deadline" class="form-control" required>
-                                </div>
+                                </div> -->
                                 
                                 <div class="col-12">
                                     <button class="btn btn-block text-center btn-gray-800 d-inline-flex align-items-center">
