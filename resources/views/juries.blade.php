@@ -131,4 +131,22 @@
         </div>
         </div>
     </div>
+
+    @push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#datatable').DataTable({
+                lengthMenu: [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, "Tous"]
+                ],
+                pageLength: 10, // valeur par défaut
+                language: {
+                    lengthMenu: "Afficher _MENU_ éléments",
+                    // Tu peux traduire d'autres éléments ici
+                }
+            });
+        });
+    </script>
+    @endpush
 </x-app-layout>
