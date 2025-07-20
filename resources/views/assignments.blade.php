@@ -147,16 +147,7 @@
                                     </div>
                                 </td>
                                 <td><span class="fw-normal">{{ $item->team_count }}</span></td>
-                                <td>
-                                    <span class="fw-normal">
-                                        @if ($item->assigned_to)
-                                            <svg class="icon icon-xxs text-success me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                clip-rule="evenodd"></path>
-                                            </svg> @lang('locale.assigned')
-                                        @endif
-                                    </span>
-                                </td>
+                                <td>{{ $item->assignments->count() }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
