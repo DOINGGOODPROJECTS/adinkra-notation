@@ -38,11 +38,11 @@ class Controller extends BaseController
 
     public function sendNotifications($id)
     {
-        // $users = User::where('id', '=', 66)->take(32)->skip(32*$id)->get();
-        $user = User::find(66);
-        $user->notify(new SubmissionsAssigned($user->assignments->count(), '2025-08-02'));
-        // foreach ($users as $item) {
-        //     $item->notify(new SubmissionsAssigned($item->assignments->count(), '2025-08-02'));
-        // }
+        $users = User::where('id', '!=', 1)->skip(32 * $id)->take(32)->get();
+        // // $user = User::find(66);
+        // $user->notify(new SubmissionsAssigned($user->assignments->count(), '2025-08-02'));
+        foreach ($users as $item) {
+            $item->notify(new SubmissionsAssigned($item->assignments->count(), '2025-08-02'));
+        }
     }
 }
