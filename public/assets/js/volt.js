@@ -104,10 +104,14 @@ d.addEventListener("DOMContentLoaded", function (event) {
     })
 
     // DataTables
-    var dataTableEl = d.getElementById('datatable');
+    var dataTableEl = document.getElementById('datatable');
     if (dataTableEl) {
-        const dataTable = new simpleDatatables.DataTable(dataTableEl);
+        const dataTable = new simpleDatatables.DataTable(dataTableEl, {
+            perPageSelect: [10, 25, 50, 100, -1], // -1 = tous les éléments
+            perPage: 10 // valeur par défaut
+        });
     }
+
 
     if (d.querySelector('.input-slider-container')) {
         [].slice.call(d.querySelectorAll('.input-slider-container')).map(function (el) {
