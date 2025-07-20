@@ -43,7 +43,7 @@ class SubmissionsImport implements ToModel, WithHeadingRow, SkipsEmptyRows
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email', Rule::unique('submissions', 'email')->whereNull('deleted_at')],
+            'email' => ['required'],
             'fullname' => 'required',
             'birthday' => 'required',
             'phone' => 'required',
