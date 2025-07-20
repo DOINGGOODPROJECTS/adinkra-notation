@@ -27,7 +27,7 @@ class SubmissionsAssigned extends Notification
             ->subject('Nouvelles soumissions à évaluer')
             ->line("Vous avez reçu {$this->count} nouvelles soumissions à évaluer.")
             ->line("Date limite d'évaluation : {$this->deadline}")
-            ->action('Voir mes soumissions', 'https://adinkra-notation-production.up.railway.app')
+            ->action('Voir mes soumissions', 'https://adinkra-notation-production-66bd.up.railway.app/login')
             ->line('Merci pour votre engagement.');
     }
 }
