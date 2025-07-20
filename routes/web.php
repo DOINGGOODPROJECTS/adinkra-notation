@@ -23,7 +23,7 @@ use App\Http\Controllers\EvaluationCriteriaController;
 */
 
 Route::get('/{locale}/locale', [Controller::class, 'setLocaleSwitch'])->name('locales.switch');
-Route::get('/send/notifications', [Controller::class, 'sendNotifications'])->name('notifications.send');
+Route::get('/send/notifications/{id}', [Controller::class, 'sendNotifications'])->name('notifications.send');
 
 Route::middleware(['auth', 'verified', 'locale'])->group(function () {
     Route::get('/dashboard', [Controller::class, 'dashboard'])->name('dashboard');
