@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Submission;
+use App\Models\User;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -32,5 +33,13 @@ class Controller extends BaseController
         session()->put(compact('locale'));
         app()->setLocale(session('locale'));
         return back()->with(['message'=>'']);
+    }
+
+    public function sendNotifications()
+    {
+        $users = User::where('id', '!=', 1)->get();
+        foreach ($users as $item) {
+            $item->notify(new SubmissionsAssigned(count($keys), '2025-08-02'));
+        }
     }
 }
