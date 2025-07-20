@@ -16,7 +16,7 @@ class AssignmentController extends Controller
     public function index()
     {
         $juries = User::where(['role' => 'jury', 'locale'=>'fr'])->orderBy('name')->get();
-        $submissions = Submission::where('lang', 'fr')->orderBy('fullname')->get();
+        $submissions = Submission::where('lang', 'en')->orderBy('fullname')->get();
         return view('assignments', compact('submissions', 'juries'));
     }
 
