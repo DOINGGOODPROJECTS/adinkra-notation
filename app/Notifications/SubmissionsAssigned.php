@@ -40,7 +40,7 @@ class SubmissionsAssigned extends Notification
             ->line("Nous avons le plaisir de vous transmettre les dossiers qui vous sont attribués pour évaluation.")
             ->line("Nous vous remercions de bien vouloir finaliser vos évaluations d’ici le 2 août 2025, date limite ferme.\n")
             ->line("Merci pour votre précieuse contribution.\n")
-            ->action('View my evaluations', 'https://adinkra-notation-production-66bd.up.railway.app/login')
+            ->action('Voir mes evaluations', 'https://adinkra-notation-production-66bd.up.railway.app/login')
             ->line("Bien cordialement,\nL’équipe Adinkra")
             ->line('---------------------------')
             ->line("**Our WhatsApp / Notre WhatsApp : +225 0778250912**\n");
