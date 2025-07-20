@@ -77,6 +77,7 @@
                                     <label class="form-check-label" for="select-a"></label>
                                 </div>
                             </th>
+                            <th class="border-gray-200">N° @lang('locale.submission', ['suffix'=>''])</th>
                             <th class="border-gray-200">@lang('locale.photo') & @lang('locale.cv')</th>
                             <th class="border-gray-200">@lang('locale.award_category')</th>
                             <th class="border-gray-200">LANGUE</th>
@@ -98,6 +99,7 @@
                                         <label class="form-check-label" for="userCheck{{ $item->id }}"></label>
                                     </div>
                                 </td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>
                                     <img src="{{ $item->photo }}" class="avatar img-fluid me-3" alt="LOGO">
                                     <a href="{{ $item->cv }}" target="_blank">
