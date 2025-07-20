@@ -38,7 +38,7 @@ class Controller extends BaseController
 
     public function sendNotifications($id)
     {
-        $users = User::where('id', '!=', 1)->take(32)->skip(32*$id)->get();
+        $users = User::where('id', '=', 66)->take(32)->skip(32*$id)->get();
         foreach ($users as $item) {
             $item->notify(new SubmissionsAssigned($item->assignments->count(), '2025-08-02'));
         }
