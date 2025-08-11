@@ -58,5 +58,6 @@
         'total_submissions' => 'Total Submissions',
         'english' => 'English',
         'french' => 'French',
-        'assignment_list' => 'Assignment List'
+        'assignment_list' => 'Assignment List',
+        'remain_submission' => 'Remain Submission Count',
     );

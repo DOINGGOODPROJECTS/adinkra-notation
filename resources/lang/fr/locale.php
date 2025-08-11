@@ -59,4 +59,5 @@
         'english' => 'Anglais',
         'french' => 'Français',
         'assignment_list' => 'Liste des affectations',
+        'remain_submission' => 'Nombre de Soumission restant à corriger',
     );

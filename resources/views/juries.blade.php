@@ -35,6 +35,7 @@
                     <th class="border-gray-200">@lang('locale.email')</th>
                     <th class="border-gray-200">@lang('locale.submission', ['suffix'=>'s'])</th>
                     <th class="border-gray-200">@lang('locale.result', ['suffix'=>'s'])</th>
+                    <th class="border-gray-200">@lang('locale.remain_submission')</th>
                     <th class="border-gray-200">@lang('locale.action', ['suffix'=>'s'])</th>
                 </thead>
                 <tbody>
@@ -44,7 +45,8 @@
                         <td><span class="fw-normal">{{ $item->name }}</span></td>
                         <td><span class="fw-normal">{{ $item->email }}</span></td>
                         <td><span class="fw-normal">{{ $item->assignments->count() }}</span></td>
-                        <td><span class="fw-bold">{{ $item->evaluations->count() }}</span></td>
+                        <td><span class="fw-bold">{{ $item->evaluations->unique('submission_id')->count() }}</span></td>
+                        <td><span class="fw-bold">{{ $item->assignments->count() - $item->evaluations->unique('submission_id')->count() }}</span></td>
                         <td></td>
                     </tr>
                     @endforeach
