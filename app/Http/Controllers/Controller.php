@@ -19,9 +19,10 @@ class Controller extends BaseController
         if(auth()->user()->role == 'jury') {
             $submissions = Submission::whereHas('assignments', fn ($item) => $item->where('user_id', auth()->id()))->get();
         }
-        $topSubmissions = $submissions->filter(fn ($item) => $item->evaluations && $item->evaluations->isNotEmpty())
-            ->sortByDesc(fn ($item) => $item->evaluations->sum('score'))
-            ->take(5);
+        $topSubmissions = $submissions
+            ->filter(fn ($item) => $item->evaluations && $item->evaluations->isNotEmpty())
+            ->sortByDesc(fn ($item) => $item->evaluations->avg('score')) // moyenne pour équilibrer
+            ->take(30);
         return view('dashboard', compact('submissions', 'topSubmissions'));
     }
 
